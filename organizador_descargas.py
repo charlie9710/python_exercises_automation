@@ -15,31 +15,23 @@ def organizador_descargas():
       ruta_original = os.path.join(ruta_descargas, i)
       if os.path.isdir(ruta_original):
                 continue
-      tipo=''
       raiz,extension = os.path.splitext(i)
 
       if extension in ['.jpg', '.jpeg', '.png', '.gif']:
-        tipo = "imagenes"
-        if not ( os.path.exists(os.path.join(ruta_descargas_copy,tipo))):
-           os.mkdir(os.path.join(ruta_descargas_copy,tipo))
-        shutil.copy(os.path.join(ruta_descargas,i),os.path.join(ruta_descargas_copy,tipo))
+        copy_files("imagenes",ruta_descargas_copy,ruta_descargas,i)
       elif extension in ['.mp4', '.mkv', '.mov', '.avi']:
-          tipo = "videos"
-          if not ( os.path.exists(os.path.join(ruta_descargas_copy,tipo))):
-           os.mkdir(os.path.join(ruta_descargas_copy,tipo))
-          shutil.copy(os.path.join(ruta_descargas,i),os.path.join(ruta_descargas_copy,tipo))
+          copy_files("videos",ruta_descargas_copy,ruta_descargas,i)
       elif extension in ['.pdf', '.docx', '.txt', '.xlsx']:
-          tipo = "documentos"
-          if not ( os.path.exists(os.path.join(ruta_descargas_copy,tipo))):
-           os.mkdir(os.path.join(ruta_descargas_copy,tipo))
-          shutil.copy(os.path.join(ruta_descargas,i),os.path.join(ruta_descargas_copy,tipo))
+          copy_files("documentos",ruta_descargas_copy,ruta_descargas,i)
       else:
-          tipo = "otros"
-          if not ( os.path.exists(os.path.join(ruta_descargas_copy,tipo))):
-           os.mkdir(os.path.join(ruta_descargas_copy,tipo))
-          shutil.copy(os.path.join(ruta_descargas,i),os.path.join(ruta_descargas_copy,tipo))
-
+          copy_files("otros",ruta_descargas_copy,ruta_descargas,i)
   else:
     print("La ruta no existe")
 
+
+def copy_files(tipo,ruta_descargas_copy,ruta_descargas,i):
+  if not ( os.path.exists(os.path.join(ruta_descargas_copy,tipo))):
+    os.mkdir(os.path.join(ruta_descargas_copy,tipo))
+  shutil.copy(os.path.join(ruta_descargas,i),os.path.join(ruta_descargas_copy,tipo))
+   
 organizador_descargas()

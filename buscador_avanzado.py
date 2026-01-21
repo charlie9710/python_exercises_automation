@@ -14,13 +14,14 @@ def buscador_avanzado():
   ruta = input("Coloca la ruta de busqueda: \n").strip('"')
   patron = os.path.join(ruta, f"{empieza}*{termina}")
 
-  lista_archivos = glob.glob(patron)
+  lista_archivos = glob.glob(patron, recursive=True)
 
   if not lista_archivos:
       print("No se encontraron archivos que coincidan.")
   else:
       print(f"\nSe encontraron {len(lista_archivos)} archivos:")
       for i in lista_archivos:
+          print(os.path.getsize(i))
           print(os.path.basename(i))
 
 buscador_avanzado()

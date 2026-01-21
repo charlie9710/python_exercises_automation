@@ -9,7 +9,7 @@ def buscador_extension():
   diccionario = {}
   for ruta_actual, directorios, archivos in os.walk(ruta_base):
     for i in archivos:
-      print(f"El archivo {i} esta en la ruta: {ruta_actual + '/' + i}")
+      print(f"El archivo {i} esta en la ruta: {os.path.join(ruta_actual, i)}")
       raiz,extension = os.path.splitext(i)
       if extension in diccionario:
         diccionario[extension]+=1

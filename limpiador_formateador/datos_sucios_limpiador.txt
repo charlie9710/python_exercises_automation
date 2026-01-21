@@ -1,0 +1,4 @@
+CLIENTE:  Juan   Perez ,  RUT: 12.345.678-9 (válido)  y su socio   RUT: 11.111.111-1 (inválido).
+Contactos: +56912345678,  9 8877 6655  o  el  antiguo 56955554444.
+Dirección: Av.  Libertador 123,   Santiago. Código   Postal:  8320000 !!! --- ???
+También enviar  a   C.P. 7500000.  $$  Limpiar  esto ##.
